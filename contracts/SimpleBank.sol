@@ -80,10 +80,10 @@ contract SimpleBank {
       // 1. Add the appropriate keyword so that this function can receive ether
     
       // 2. Users should be enrolled before they can make deposits
-       require(enrolled[msg.sender] == true,"User is not enrolled!");
+       require(enrolled[msg.sender] == true,"User is not enrolled into the system!");
       // 3. Add the amount to the user's balance. Hint: the amount can be
       //    accessed from of the global variable `msg`
-       require(msg.value>0,"there is not value for deposit");
+       require(msg.value>0,"there is not value for deposit ");
       // 4. Emit the appropriate event associated with this function
         emit LogDepositMade( msg.sender , msg.value );
       // 5. return the balance of sndr of this transaction
@@ -104,7 +104,7 @@ contract SimpleBank {
         
       // 1. Use a require expression to guard/ensure sender has enough funds
         require( balances[msg.sender] >= withdrawAmount ,"");
-        require( enrolled[msg.sender] == true, "User is not enrolled." );
+        require( enrolled[msg.sender] == true, "User is not enrolled into system." );
         require( withdrawAmount > 0 ,"Enter non-zero value.");
       // 2. Transfer Eth to the sender and decrement the withdrawal amount from
       //    sender's balance
