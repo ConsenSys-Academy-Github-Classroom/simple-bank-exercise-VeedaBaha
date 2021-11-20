@@ -84,6 +84,7 @@ contract SimpleBank {
       // 3. Add the amount to the user's balance. Hint: the amount can be
       //    accessed from of the global variable `msg`
        require(msg.value>0,"there is not value for deposit ");
+       balances[msg.sender] = balances[msg.sender]+msg.value;
       // 4. Emit the appropriate event associated with this function
         emit LogDepositMade( msg.sender , msg.value );
       // 5. return the balance of sndr of this transaction
